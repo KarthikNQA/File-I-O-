@@ -1,0 +1,66 @@
+package java_exception;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class FileIO {
+
+	public static void main(String[] args) {
+		
+		long diff = System.currentTimeMillis();
+		String filename = "output_"+diff+".txt";
+		
+		File inputfilepath = new File("input.txt");
+		File outputfilepath = new File(filename);
+		inputfilepath.exists();
+		inputfilepath.mkdir();
+		
+		FileInputStream in = null ;
+		FileOutputStream out = null;
+		
+		
+		
+		try {
+			in = new FileInputStream(inputfilepath); 
+			
+		//	int r = in.read();
+			
+		//in = new FileInputStream("C:\\Users\\Kalyanasundaram\\OneDrive\\Desktop\\Wormhole theory.txt");
+			//in = new FileInputStream("C:\\Users\\Kalyanasundaram\\OneDrive\\Desktop\\Wormhole theory.docx");
+			//out = new FileOutputStream("output.docx");
+		out = new FileOutputStream(outputfilepath);	
+		int d =0;
+			while ((d = in.read()) != -1) {
+				out. write(d);
+
+			}
+			System.out.println("File write Successfully!!");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			if (in != null)
+				try {
+					in . close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+		if (out !=null) {
+			try {
+				out.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}
+
+	}
+
+}

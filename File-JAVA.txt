@@ -50,19 +50,4 @@ public class FileIO {
 					e.printStackTrace();
 				}
 		}
-		if (out !=null) {
-			try {
-				out.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			
-		}
-
-	}
-
-}
-
-
+		
